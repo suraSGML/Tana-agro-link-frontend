@@ -1,0 +1,36 @@
+<svg width="1200" height="420" viewBox="0 0 1200 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="420" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#1f2937"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="300" y2="220" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f59e0b"/>
+      <stop offset="1" stop-color="#fbbf24"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="420" rx="24" fill="url(#bg)"/>
+  <circle cx="1020" cy="95" r="150" fill="#0ea5e9" fill-opacity="0.18"/>
+  <circle cx="180" cy="330" r="180" fill="#10b981" fill-opacity="0.18"/>
+
+  <rect x="90" y="90" width="240" height="170" rx="18" fill="#111827" stroke="#374151"/>
+  <rect x="110" y="120" width="135" height="18" rx="9" fill="#9ca3af"/>
+  <rect x="110" y="150" width="190" height="14" rx="7" fill="#4b5563"/>
+  <rect x="110" y="172" width="140" height="14" rx="7" fill="#4b5563"/>
+  <rect x="110" y="205" width="120" height="26" rx="10" fill="url(#card)"/>
+
+  <rect x="370" y="65" width="300" height="220" rx="20" fill="#ffffff"/>
+  <rect x="395" y="95" width="130" height="18" rx="9" fill="#1f2937"/>
+  <rect x="395" y="126" width="225" height="14" rx="7" fill="#9ca3af"/>
+  <rect x="395" y="148" width="170" height="14" rx="7" fill="#9ca3af"/>
+  <rect x="395" y="184" width="100" height="30" rx="10" fill="#f59e0b"/>
+  <circle cx="620" cy="235" r="24" fill="#10b981"/>
+  <path d="M605 235L617 247L639 223" stroke="white" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="730" y="120" width="360" height="200" rx="18" fill="#0b1220" stroke="#374151"/>
+  <rect x="760" y="150" width="210" height="16" rx="8" fill="#d1d5db"/>
+  <rect x="760" y="178" width="280" height="12" rx="6" fill="#6b7280"/>
+  <rect x="760" y="199" width="200" height="12" rx="6" fill="#6b7280"/>
+  <rect x="760" y="230" width="165" height="34" rx="12" fill="#2563eb"/>
+  <text x="95" y="52" fill="#fbbf24" font-size="24" font-family="Segoe UI, Arial" font-weight="700">Tana-Agro Link Marketplace</text>
+</svg>

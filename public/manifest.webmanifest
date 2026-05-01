@@ -1,0 +1,9 @@
+{
+  "name": "Tana-Agro Link",
+  "short_name": "TanaAgro",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f4f8f7",
+  "theme_color": "#0d9488",
+  "icons": []
+}

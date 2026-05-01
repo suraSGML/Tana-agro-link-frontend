@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    @apply bg-surface text-slate-100 font-sans antialiased;
+    overflow-x: hidden;
+  }
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { @apply bg-surface; }
+  ::-webkit-scrollbar-thumb { @apply bg-surface-border rounded-full; }
+  ::-webkit-scrollbar-thumb:hover { @apply bg-slate-500; }
+}
+
+@layer components {
+  /* ── Inputs ── */
+  .input {
+    @apply w-full bg-surface-card border border-surface-border rounded-xl px-4 py-3
+           text-slate-100 placeholder-slate-500 text-sm
+           focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent
+           transition-all duration-200;
+  }
+  .input-sm {
+    @apply input py-2 text-xs;
+  }
+  select.input option {
+    @apply bg-surface-card text-slate-100;
+  }
+
+  /* ── Buttons ── */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 font-semibold rounded-xl
+           px-4 py-2.5 text-sm transition-all duration-200 cursor-pointer
+           disabled:opacity-40 disabled:cursor-not-allowed select-none;
+  }
+  .btn-primary {
+    @apply btn bg-brand-500 text-slate-900 hover:bg-brand-400 active:scale-95
+           shadow-lg shadow-brand-500/20;
+  }
+  .btn-secondary {
+    @apply btn bg-surface-card border border-surface-border text-slate-200
+           hover:bg-surface-hover hover:border-slate-500 active:scale-95;
+  }
+  .btn-ghost {
+    @apply btn bg-transparent text-slate-400 hover:text-slate-100 hover:bg-surface-hover active:scale-95;
+  }
+  .btn-danger {
+    @apply btn bg-red-500/10 border border-red-500/30 text-red-400
+           hover:bg-red-500/20 active:scale-95;
+  }
+  .btn-success {
+    @apply btn bg-emerald-500/10 border border-emerald-500/30 text-emerald-400
+           hover:bg-emerald-500/20 active:scale-95;
+  }
+  .btn-icon {
+    @apply btn p-2 rounded-lg;
+  }
+
+  /* ── Cards ── */
+  .card {
+    @apply bg-surface-card border border-surface-border rounded-2xl
+           transition-all duration-200;
+  }
+  .card-hover {
+    @apply card hover:border-slate-500 hover:shadow-xl hover:shadow-black/20
+           hover:-translate-y-0.5 cursor-pointer;
+  }
+
+  /* ── Badges ── */
+  .badge {
+    @apply inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+  .badge-blue   { @apply badge bg-blue-500/15 text-blue-400 border border-blue-500/20; }
+  .badge-green  { @apply badge bg-emerald-500/15 text-emerald-400 border border-emerald-500/20; }
+  .badge-yellow { @apply badge bg-brand-500/15 text-brand-400 border border-brand-500/20; }
+  .badge-red    { @apply badge bg-red-500/15 text-red-400 border border-red-500/20; }
+  .badge-purple { @apply badge bg-purple-500/15 text-purple-400 border border-purple-500/20; }
+  .badge-gray   { @apply badge bg-slate-500/15 text-slate-400 border border-slate-500/20; }
+
+  /* ── Stat cards ── */
+  .stat-card {
+    @apply card p-5 flex flex-col gap-1;
+  }
+
+  /* ── Section headings ── */
+  .section-title {
+    @apply text-lg font-bold text-slate-100 flex items-center gap-2;
+  }
+
+  /* ── Skeleton ── */
+  .skeleton {
+    @apply rounded-xl bg-gradient-to-r from-surface-card via-surface-hover to-surface-card
+           bg-[length:200%_100%] animate-shimmer;
+  }
+
+  /* ── Divider ── */
+  .divider {
+    @apply border-t border-surface-border my-4;
+  }
+
+  /* ── Table ── */
+  .table-wrap {
+    @apply overflow-x-auto rounded-xl border border-surface-border;
+  }
+  table { @apply w-full text-sm; }
+  thead tr { @apply bg-surface-hover; }
+  th { @apply px-4 py-3 text-left text-xs font-semibold text-slate-400 uppercase tracking-wider; }
+  td { @apply px-4 py-3 text-slate-300 border-t border-surface-border; }
+  tbody tr { @apply hover:bg-surface-hover transition-colors; }
+
+  /* ── Nav item ── */
+  .nav-item {
+    @apply flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium
+           text-slate-400 hover:text-slate-100 hover:bg-surface-hover
+           transition-all duration-150 cursor-pointer select-none;
+  }
+  .nav-item.active {
+    @apply bg-brand-500/10 text-brand-400 border border-brand-500/20;
+  }
+
+  /* ── Category pill ── */
+  .cat-pill {
+    @apply px-3 py-1.5 rounded-full text-xs font-semibold border transition-all duration-150 cursor-pointer;
+  }
+  .cat-pill.active {
+    @apply bg-brand-500 text-slate-900 border-brand-500;
+  }
+  .cat-pill:not(.active) {
+    @apply bg-surface-card border-surface-border text-slate-400 hover:border-slate-500 hover:text-slate-200;
+  }
+
+  /* ── Price tag ── */
+  .price-tag {
+    @apply text-2xl font-bold text-brand-400;
+  }
+
+  /* ── Toast ── */
+  .toast {
+    @apply flex items-start gap-3 px-4 py-3 rounded-xl shadow-2xl
+           border text-sm font-medium min-w-[280px] max-w-[380px]
+           animate-slide-up;
+  }
+  .toast-success { @apply toast bg-emerald-950 border-emerald-500/30 text-emerald-300; }
+  .toast-error   { @apply toast bg-red-950 border-red-500/30 text-red-300; }
+  .toast-info    { @apply toast bg-surface-card border-surface-border text-slate-300; }
+
+  /* ── Modal ── */
+  .modal-backdrop {
+    @apply fixed inset-0 bg-black/70 backdrop-blur-sm z-50
+           flex items-center justify-center p-4;
+  }
+  .modal {
+    @apply card w-full max-w-2xl max-h-[90vh] overflow-y-auto p-6
+           animate-pop-in shadow-2xl;
+  }
+
+  /* ── Form group ── */
+  .form-group {
+    @apply flex flex-col gap-1.5;
+  }
+  .form-label {
+    @apply text-xs font-semibold text-slate-400 uppercase tracking-wider;
+  }
+  .field-error {
+    @apply text-xs text-red-400 mt-0.5;
+  }
+
+  /* ── Order status ── */
+  .status-pending    { @apply badge-yellow; }
+  .status-confirmed  { @apply badge-blue; }
+  .status-in_transit { @apply badge-purple; }
+  .status-delivered  { @apply badge-green; }
+  .status-cancelled  { @apply badge-red; }
+  .status-disputed   { @apply badge-red; }
+}
