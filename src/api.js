@@ -2,6 +2,7 @@
 // In dev: Vite proxies /api → localhost:4000
 // In production: set VITE_API_URL=https://your-backend.onrender.com in your
 // hosting dashboard (Vercel / Netlify environment variables)
+// v2
 const BASE = import.meta.env.VITE_API_URL || "";
 
 const request = async (url, options = {}, token = "") => {
