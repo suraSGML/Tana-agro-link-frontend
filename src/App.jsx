@@ -77,35 +77,36 @@ export default function App() {
       .catch(() => setHealthOk(false));
   }, []);
 
-  // Main data load
+  // Main data load — defensive: ensure all responses are arrays to prevent forEach crashes
   useEffect(() => {
     const load = async () => {
       try {
         setLoading(true);
+        const toArr = (v) => (Array.isArray(v) ? v : []);
         const [p, c, l, lg, rs, ro] = await Promise.all([
-          api.getPrices(),
-          api.getCommodities(),
-          api.getListings(),
-          api.getLogistics(),
-          api.getResources(),
-          api.getRecentOrders(),
+          api.getPrices().catch(() => []),
+          api.getCommodities().catch(() => []),
+          api.getListings().catch(() => []),
+          api.getLogistics().catch(() => []),
+          api.getResources().catch(() => []),
+          api.getRecentOrders().catch(() => []),
         ]);
-        setPrices(p);
-        setCommodities(c);
-        setListings(l);
-        setLogistics(lg);
-        setResources(rs);
-        setRecentOrders(ro);
+        setPrices(toArr(p));
+        setCommodities(toArr(c));
+        setListings(toArr(l));
+        setLogistics(toArr(lg));
+        setResources(toArr(rs));
+        setRecentOrders(toArr(ro));
 
         if (token) {
           const [b, s, u] = await Promise.all([
-            api.getUsers("buyer", token),
-            api.getUsers("seller", token),
-            api.getUsers("", token),
+            api.getUsers("buyer", token).catch(() => []),
+            api.getUsers("seller", token).catch(() => []),
+            api.getUsers("", token).catch(() => []),
           ]);
-          setBuyers(b);
-          setSellers(s);
-          setAllUsers(u);
+          setBuyers(toArr(b));
+          setSellers(toArr(s));
+          setAllUsers(toArr(u));
         }
       } catch (err) {
         handleApiError(err);
@@ -158,7 +159,7 @@ export default function App() {
   const refreshListings = useCallback(async (params = {}) => {
     try {
       const data = await api.getListings(params);
-      setListings(data);
+      setListings(Array.isArray(data) ? data : []);
     } catch (err) { handleApiError(err); }
   }, [handleApiError]);
 
